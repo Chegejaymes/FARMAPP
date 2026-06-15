@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Kenyan Flag & Vibrant Colors -->
+    <color name="kenya_red">#BB0615</color>
+    <color name="kenya_green">#006600</color>
+    <color name="kenya_black">#000000</color>
+
+    <!-- Brighter/Vibrant versions -->
+    <color name="vibrant_green">#228B22</color>
+    <color name="vibrant_red">#E31A1C</color>
+    <color name="vibrant_orange">#FF8C00</color>
+    <color name="vibrant_blue">#007FFF</color>
+
+    <color name="sun_yellow">#FFD700</color>
+    <color name="soil_brown">#8B4513</color>
+    <color name="sky_blue">#87CEEB</color>
+
+    <!-- Pastel Backgrounds for Cards -->
+    <color name="bg_maize">#FFF9C4</color>
+    <color name="bg_milk">#E1F5FE</color>
+    <color name="bg_eggs">#FFF3E0</color>
+    <color name="bg_coffee">#EFEBE9</color>
+    <color name="bg_sukuma">#E8F5E9</color>
+
+    <color name="purple">#FF6200EE</color>
+</resources>

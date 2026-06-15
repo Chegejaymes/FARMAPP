@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/money_bg"
+    tools:context=".OrderplacmentActivity">
+
+    <TextView
+        android:id="@+id/tvOrderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Place Your Order"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginVertical="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardTotal"
+        app:layout_constraintTop_toBottomOf="@id/tvOrderTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <!-- Item: Maize -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+                    <CheckBox android:id="@+id/cbMaize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" />
+                    <TextView android:id="@+id/tvMaizeName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Maize (90kg Bag)" android:textStyle="bold" android:textSize="18sp" android:textColor="@color/kenya_green" />
+                    <TextView android:id="@+id/tvMaizePrice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tvMaizeName" android:text="Price: KSh 4,200" android:textColor="@color/kenya_red" />
+                    <TextView android:id="@+id/tvMaizeStock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tvMaizePrice" android:text="Stock: 150 Units" android:textSize="12sp" />
+                    <EditText android:id="@+id/etMaizeQty" android:layout_width="60dp" android:layout_height="wrap_content" android:layout_below="@id/tvMaizeStock" android:layout_marginTop="8dp" android:hint="Qty" android:inputType="number" android:text="1" android:textSize="14sp" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Item: Milk -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+                    <CheckBox android:id="@+id/cbMilk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" />
+                    <TextView android:id="@+id/tvMilkName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Milk (per Liter)" android:textStyle="bold" android:textSize="18sp" android:textColor="@color/kenya_green" />
+                    <TextView android:id="@+id/tvMilkPrice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tvMilkName" android:text="Price: KSh 55" android:textColor="@color/kenya_red" />
+                    <TextView android:id="@+id/tvMilkStock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tvMilkPrice" android:text="Stock: 500 Liters" android:textSize="12sp" />
+                    <EditText android:id="@+id/etMilkQty" android:layout_width="60dp" android:layout_height="wrap_content" android:layout_below="@id/tvMilkStock" android:layout_marginTop="8dp" android:hint="Qty" android:inputType="number" android:text="1" android:textSize="14sp" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Item: Eggs -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+                    <CheckBox android:id="@+id/cbEggs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" />
+                    <TextView android:id="@+id/tvEggsName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Eggs (per Tray)" android:textStyle="bold" android:textSize="18sp" android:textColor="@color/kenya_green" />
+                    <TextView android:id="@+id/tvEggsPrice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tvEggsName" android:text="Price: KSh 450" android:textColor="@color/kenya_red" />
+                    <TextView android:id="@+id/tvEggsStock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tvEggsPrice" android:text="Stock: 40 Trays" android:textSize="12sp" />
+                    <EditText android:id="@+id/etEggsQty" android:layout_width="60dp" android:layout_height="wrap_content" android:layout_below="@id/tvEggsStock" android:layout_marginTop="8dp" android:hint="Qty" android:inputType="number" android:text="1" android:textSize="14sp" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Item: Coffee -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+                    <CheckBox android:id="@+id/cbCoffee" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" />
+                    <TextView android:id="@+id/tvCoffeeName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Coffee (per Kg)" android:textStyle="bold" android:textSize="18sp" android:textColor="@color/kenya_green" />
+                    <TextView android:id="@+id/tvCoffeePrice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tvCoffeeName" android:text="Price: KSh 800" android:textColor="@color/kenya_red" />
+                    <TextView android:id="@+id/tvCoffeeStock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tvCoffeePrice" android:text="Stock: 200 Kg" android:textSize="12sp" />
+                    <EditText android:id="@+id/etCoffeeQty" android:layout_width="60dp" android:layout_height="wrap_content" android:layout_below="@id/tvCoffeeStock" android:layout_marginTop="8dp" android:hint="Qty" android:inputType="number" android:text="1" android:textSize="14sp" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tvTotalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Amount:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KSh 0"
+                android:textColor="@color/kenya_green"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnPlaceOrder"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/kenya_red"
+                android:text="PLACE ORDER NOW"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

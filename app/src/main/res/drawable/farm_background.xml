@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Sky -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:endColor="#87CEEB"
+                android:startColor="#B3E5FC" />
+        </shape>
+    </item>
+    <!-- Distant Hills -->
+    <item android:top="200dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:endColor="#388E3C"
+                android:startColor="#4CAF50" />
+        </shape>
+    </item>
+    <!-- Foreground Grass -->
+    <item android:top="400dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:endColor="#1B5E20"
+                android:startColor="#2E7D32" />
+        </shape>
+    </item>
+</layer-list>
