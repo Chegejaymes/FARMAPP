@@ -64,6 +64,19 @@
                 app:layout_constraintTop_toBottomOf="@id/tvUserName"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/vibrant_red"
+                android:text="LOGOUT"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:cornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvWelcome" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Vertical List of Produces (Descending) -->

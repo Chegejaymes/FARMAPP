@@ -1,16 +1,11 @@
 plugins {
-    id("com.google.gms.google-services") version "4.4.4" apply false
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
 }
 
 android {
     namespace = "com.example.farmapp"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.farmapp"
@@ -42,6 +37,7 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.auth)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)

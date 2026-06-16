@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FARMAPP">
         <activity
+            android:name=".PaymentpageActivity"
+            android:exported="false" />
+        <activity
             android:name=".OrderplacmentActivity"
             android:exported="false" />
         <activity

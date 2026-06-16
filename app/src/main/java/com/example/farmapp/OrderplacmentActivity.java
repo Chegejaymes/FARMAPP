@@ -1,5 +1,6 @@
 package com.example.farmapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -72,7 +73,9 @@ public class OrderplacmentActivity extends AppCompatActivity {
 
         btnPlaceOrder.setOnClickListener(v -> {
             if (totalAmount > 0) {
-                Toast.makeText(this, "Order Placed Successfully! Total: KSh " + totalAmount, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(OrderplacmentActivity.this, PaymentpageActivity.class);
+                intent.putExtra("TOTAL_AMOUNT", totalAmount);
+                startActivity(intent);
             } else {
                 Toast.makeText(this, "Please select at least one item", Toast.LENGTH_SHORT).show();
             }

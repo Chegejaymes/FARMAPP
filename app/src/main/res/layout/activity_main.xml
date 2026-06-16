@@ -85,6 +85,18 @@
                 android:textColor="@color/vibrant_red"
                 android:textSize="22sp" />
 
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/vibrant_red"
+                android:textSize="22sp" />
+
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"

@@ -13,13 +13,26 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class SignupActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_signup);
+
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -43,14 +56,31 @@ public class SignupActivity extends AppCompatActivity {
             if (name.isEmpty() || phone.isEmpty() || location.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please fill all details", Toast.LENGTH_SHORT).show();
             } else {
-                // Details are NOT saved permanently, just passed to the next screen
-                Toast.makeText(this, "Registration Successful, Jambo " + name + "!", Toast.LENGTH_LONG).show();
-                
-                // Redirect to Dashboard and pass the name to 'fill out the form'
-                Intent intent = new Intent(SignupActivity.this, DashboardActivity.class);
-                intent.putExtra("USER_NAME", name);
-                startActivity(intent);
-                finish(); // Close signup page
+                // Register with Firebase Auth
+                mAuth.createUserWithEmailAndPassword(phone + "@farm.com", password)
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful() && mAuth.getCurrentUser() != null) {
+                            String userId = mAuth.getCurrentUser().getUid();
+                            
+                            // Save extra details to Database
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("name", name);
+                            user.put("phone", phone);
+                            user.put("location", location);
+
+                            mDatabase.child("users").child(userId).setValue(user)
+                                .addOnCompleteListener(dbTask -> {
+                                    Toast.makeText(this, "Registration Successful, Jambo " + name + "!", Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(SignupActivity.this, DashboardActivity.class);
+                                    intent.putExtra("USER_NAME", name);
+                                    startActivity(intent);
+                                    finish();
+                                });
+                        } else {
+                            String errorMsg = (task.getException() != null) ? task.getException().getMessage() : "Unknown Error";
+                            Toast.makeText(this, "Registration failed: " + errorMsg, Toast.LENGTH_LONG).show();
+                        }
+                    });
             }
         });
 
